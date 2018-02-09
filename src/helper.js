@@ -9,11 +9,19 @@ const executeQuery = async (model, query, options = {}) => {
     fieldOrdering = '_id',
     select,
     ordering = -1,
+    cursor,
   } = options;
 
   const sortObj = isObject(fieldOrdering)
     ? fieldOrdering
     : { [fieldOrdering]: ordering };
+
+    if (cursor) {
+      const operator = ordering === -1 ? '$lte' : '$gte';
+      query._id = {
+        [operator]: cursor,
+      }
+    }
 
   let prepareQuery = model
     .find(query)
