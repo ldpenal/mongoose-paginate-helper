@@ -47,7 +47,7 @@ const executeQuery = async (model, query, options = {}) => {
 };
 
 /**
- * 
+ * Pagination helper.
  * @param {Object} model Mongoose model's object, used interface of it.
  * @param {Object} query object query to perform.
  * @param {Object} options additional data
