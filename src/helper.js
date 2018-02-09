@@ -1,3 +1,7 @@
+/**
+ * Check if param is of type 'object'.
+ * @param {Any} object 
+ */
 const isObject = (object) => object != null
   && typeof object == 'object'
   && !Array.isArray(object);
@@ -42,6 +46,19 @@ const executeQuery = async (model, query, options = {}) => {
   return list.map(element => element.toObject());
 };
 
+/**
+ * 
+ * @param {Object} model Mongoose model's object, used interface of it.
+ * @param {Object} query object query to perform.
+ * @param {Object} options additional data
+ * @param {Number} options.limit amount of results to retrieve.
+ * @param {Boolean} options.lean when to perform lean queries.
+ * @param {Object} options.fieldOrdering key-value pairs indicating results sorting.
+ * @param {Object} options.select fields to project.
+ * @param {Number} options.ordering use when _id base sorting, -1=desc 1=asc
+ * @param {String} options.cursor id value from which start result retrieving.
+ * @returns {Object} { list: [{}], cursor: 'string' }
+ */
 const pagination = async function (model, query, options) {
   const list = await executeQuery(model, query, options);
 
