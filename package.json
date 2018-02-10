@@ -1,6 +1,6 @@
 {
   "name": "mongoose-paginate-helper",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Interface based query pagination",
   "main": "index.js",
   "scripts": {
