@@ -63,7 +63,7 @@ const pagination = async function (model, query, options) {
   const list = await executeQuery(model, query, options);
 
   let cursor = undefined;
-  const lastElement = list[options.limit + 1];
+  const lastElement = list[options.limit];
   if (lastElement) {
     cursor = lastElement._id;
     list.pop();
